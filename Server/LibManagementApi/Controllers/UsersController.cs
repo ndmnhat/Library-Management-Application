@@ -36,7 +36,7 @@ namespace LibManagementApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<dynamic>> GetUser(Guid id)
         {
-            if (User.FindFirst(ClaimTypes.NameIdentifier).Value != id.ToString())
+            if (User.FindFirst(ClaimTypes.NameIdentifier).Value != id.ToString() && User.FindFirst(ClaimTypes.Role).Value != "Librarian")
                 return Unauthorized();
 
             var user = await _context.Users.Select(u => new { u.UserID, u.Username, u.Name, u.Role, u.Email }).FirstOrDefaultAsync(u => u.UserID == id);
