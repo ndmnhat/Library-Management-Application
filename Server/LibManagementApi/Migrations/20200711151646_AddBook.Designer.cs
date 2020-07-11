@@ -3,14 +3,16 @@ using System;
 using LibManagementApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LibManagementApi.Migrations
 {
     [DbContext(typeof(LibDbContext))]
-    partial class LibContextModelSnapshot : ModelSnapshot
+    [Migration("20200711151646_AddBook")]
+    partial class AddBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

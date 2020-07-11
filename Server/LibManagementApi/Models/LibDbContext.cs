@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using LibManagementApi.Models;
 
 namespace LibManagementApi.Models
 {
@@ -8,6 +9,9 @@ namespace LibManagementApi.Models
             : base(options)
         {
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<LibManagementApi.Models.Books> Books { get; set; }
+        public DbSet<LibManagementApi.Models.BookBorrowings> BookBorrowings { get; set; }
+        public DbSet<LibManagementApi.Models.BookReturnings> BookReturnings { get; set; }
     }
 }

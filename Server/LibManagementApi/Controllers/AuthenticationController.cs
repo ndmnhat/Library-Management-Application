@@ -24,7 +24,7 @@ namespace LibManagementApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] User inputuser)
+        public async Task<IActionResult> Login([FromBody] Users inputuser)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace LibManagementApi.Controllers
                 return BadRequest();
             }
         }
-        private dynamic GenerateToken(User user)
+        private dynamic GenerateToken(Users user)
         {
             var claim = new List<Claim>
             {
