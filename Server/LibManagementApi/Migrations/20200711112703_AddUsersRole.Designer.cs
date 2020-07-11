@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibManagementApi.Migrations
 {
     [DbContext(typeof(LibDbContext))]
-    [Migration("20200710042357_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200711112703_AddUsersRole")]
+    partial class AddUsersRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,9 +26,15 @@ namespace LibManagementApi.Migrations
                         .HasColumnType("varbinary(16)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("UserID");

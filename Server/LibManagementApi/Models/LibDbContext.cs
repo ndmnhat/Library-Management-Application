@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibManagementApi.Models
 {
-    public class LibContext : DbContext
+    public class LibDbContext : DbContext
     {
-        public LibContext(DbContextOptions<LibContext> options)
+        public LibDbContext(DbContextOptions<LibDbContext> options)
             : base(options)
         {
         }

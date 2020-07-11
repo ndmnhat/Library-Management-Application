@@ -15,6 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using MySQL.Data.EntityFrameworkCore;
 using LibManagementApi.Models;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
 namespace LibManagementApi
 {
@@ -35,8 +38,24 @@ namespace LibManagementApi
                 options.KnownProxies.Add(IPAddress.Parse("127.0.0.1"));
             });
 
-            services.AddDbContext<LibContext>(options => options.UseMySQL(Configuration["ConnectionString"]));
+            services.AddDbContext<LibDbContext>(options => options.UseMySQL(Configuration["ConnectionString"]));
             services.AddControllers();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
+            }).AddJwtBearer("JwtBearer", jwtBearerOptions =>
+            {
+                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("My Secret 12345678910 is very long")),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromMinutes(5)
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +73,8 @@ namespace LibManagementApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

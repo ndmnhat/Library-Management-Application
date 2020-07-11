@@ -6,25 +6,27 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibManagementApi.Models;
-
+using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 namespace LibManagementApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly LibContext _context;
+        private readonly LibDbContext _context;
 
-        public UsersController(LibContext context)
+        public UsersController(LibDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Users
+        [Authorize(Roles = "Librarian")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<dynamic>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Select(u => new { u.UserID, u.Username, u.Role }).ToListAsync();
         }
 
         // GET: api/Users/5
