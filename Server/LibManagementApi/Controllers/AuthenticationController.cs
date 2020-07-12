@@ -63,5 +63,10 @@ namespace LibManagementApi.Controllers
             };
             return output;
         }
+        [HttpGet]
+        public async Task<string> CheckVersion()
+        {
+            return "Version 1.1";
+        }
     }
 }
