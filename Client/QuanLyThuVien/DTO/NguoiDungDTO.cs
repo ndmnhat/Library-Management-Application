@@ -19,12 +19,15 @@ namespace QuanLyThuVien.DTO
         }
         public NguoiDungDTO(string Username, string Password)
         {
+            this.UserID = "00000000-0000-0000-0000-000000000000";
             this.Username = Username;
             this.Password = Password;
+            this.Name = "";
+            this.Email = "";
+            this.Role = "";
         }
         public NguoiDungDTO(string UserID, string Username, string Password, string Name, string Email, string Role)
         {
-            this.UserID = "";
             this.UserID = UserID;
             this.Username = Username;
             this.Password = Password;
@@ -34,6 +37,7 @@ namespace QuanLyThuVien.DTO
         }
         public NguoiDungDTO(string Username, string Password, string Name, string Email, string Role)
         {
+            this.UserID = "00000000-0000-0000-0000-000000000000";
             this.Username = Username;
             this.Password = Password;
             this.Name = Name;
