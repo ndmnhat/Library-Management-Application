@@ -113,10 +113,17 @@ namespace LibManagementApi.Controllers
 
             return user;
         }
-
+        // GET: Users/CheckAvail/{Username}
+        [Route("CheckAvail")]
+        [HttpGet("{Username}")]
+        public async Task<bool> CheckAvailableUsername(string Username)
+        {
+            return await _context.Users.AnyAsync(e => e.Username == Username);
+        }
         private bool UserExists(Guid id)
         {
             return _context.Users.Any(e => e.UserID == id);
         }
+
     }
 }

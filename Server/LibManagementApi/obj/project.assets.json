@@ -9321,24 +9321,26 @@
     ]
   },
   "packageFolders": {
-    "/home/ndmnhat/.nuget/packages/": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/F0DA5ABADA5A7D32/Library Management Application/Server/LibManagementApi/LibManagementApi.csproj",
+      "projectUniqueName": "D:\\Library Management Application\\Server\\LibManagementApi\\LibManagementApi.csproj",
       "projectName": "LibManagementApi",
-      "projectPath": "/mnt/F0DA5ABADA5A7D32/Library Management Application/Server/LibManagementApi/LibManagementApi.csproj",
-      "packagesPath": "/home/ndmnhat/.nuget/packages/",
-      "outputPath": "/mnt/F0DA5ABADA5A7D32/Library Management Application/Server/LibManagementApi/obj/",
+      "projectPath": "D:\\Library Management Application\\Server\\LibManagementApi\\LibManagementApi.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\Library Management Application\\Server\\LibManagementApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/ndmnhat/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9414,7 +9416,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

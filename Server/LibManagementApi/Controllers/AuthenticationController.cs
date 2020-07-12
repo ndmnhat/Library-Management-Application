@@ -59,7 +59,7 @@ namespace LibManagementApi.Controllers
             var output = new
             {
                 Access_Token = new JwtSecurityTokenHandler().WriteToken(token),
-                UserName = user.Username
+                UserID = user.UserID
             };
             return output;
         }
