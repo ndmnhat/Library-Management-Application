@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace QuanLyThuVien
 		public frmQuanLySach()
 		{
 			InitializeComponent();
+			dtGVSach.DataSource = SachBUS.TraCuuSach();
 		}
 	}
 }

@@ -17,6 +17,7 @@ namespace LibManagementApi.Models
         public string YearofPub { get; set; }
         public string Category { get; set; }
         public DateTime CreateAt { get; set; }
+        public int Quantity { get; set; }
         public ICollection<BookBorrowings> BookBorrowings { get; set; }
     }
 }

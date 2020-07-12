@@ -23,6 +23,7 @@ namespace QuanLyThuVien
 			frmDangNhap.ShowDialog();
 			if (frmDangNhap.DialogResult != DialogResult.OK)
 				this.Close();
+			lblXinChao.Text += Globals.UserInfo.Name;
 			panel4.Visible = false;
 		}
 

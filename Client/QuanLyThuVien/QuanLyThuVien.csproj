@@ -53,7 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\NguoiDungBUS.cs" />
+    <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
+    <Compile Include="DTO\SachDTO.cs" />
+    <Compile Include="DTO\SachListDTO.cs" />
     <Compile Include="frmDangKyMuon.cs">
       <SubType>Form</SubType>
     </Compile>
