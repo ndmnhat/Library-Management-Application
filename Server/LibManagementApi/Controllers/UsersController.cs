@@ -115,10 +115,10 @@ namespace LibManagementApi.Controllers
         }
         // GET: Users/CheckAvail/{Username}
         [Route("CheckAvail")]
-        [HttpGet("{Username}")]
-        public async Task<bool> CheckAvailableUsername(string Username)
+        [HttpGet("{id}")]
+        public async Task<bool> CheckAvailableUsername(string id)
         {
-            return await _context.Users.AnyAsync(e => e.Username == Username);
+            return await _context.Users.AnyAsync(e => e.Username == id);
         }
         private bool UserExists(Guid id)
         {
