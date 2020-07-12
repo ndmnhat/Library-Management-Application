@@ -47,7 +47,7 @@ namespace LibManagementApi.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Authorize(Roles = "Librarian")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBooks(Guid id, Books books)
+        public async Task<IActionResult> PutBooks(Guid id, [FromBody] Books books)
         {
             if (id != books.BookID)
             {

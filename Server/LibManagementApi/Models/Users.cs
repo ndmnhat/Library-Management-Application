@@ -9,7 +9,7 @@ namespace LibManagementApi.Models
     public class Users
     {
         [Key]
-        public Guid UserID { get; private set; }
+        public Guid UserID { get; set; }
         [Required]
         public string Username { get; set; }
         [Required]

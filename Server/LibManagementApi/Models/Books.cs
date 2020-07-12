@@ -9,7 +9,7 @@ namespace LibManagementApi.Models
     public class Books
     {
         [Key]
-        public Guid BookID { get; private set; }
+        public Guid BookID { get; set; }
         [Required]
         public string Bookname { get; set; }
         [Required]
