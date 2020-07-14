@@ -18,6 +18,12 @@ namespace QuanLyThuVien.BUS
             var result = JsonConvert.DeserializeObject<List<SachDTO>>(await responseMessage.Content.ReadAsStringAsync());
             return result;
         }
+        public static async Task<List<SachDTO>> TraCuuSach(string keyword)
+        {
+            var responseMessage = await Globals.httpClient.GetAsync($"https://apilibmanagement.ml/Books/Search?keyword={keyword}");
+            var result = JsonConvert.DeserializeObject<List<SachDTO>>(await responseMessage.Content.ReadAsStringAsync());
+            return result;
+        }
         public static async Task<bool> ThemSach(SachDTO sach)
         {
             var JsonSach = JObject.FromObject(sach);

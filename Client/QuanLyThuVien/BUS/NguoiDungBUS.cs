@@ -55,5 +55,9 @@ namespace QuanLyThuVien.BUS
                 }
             }    
         }
+        public static void DangXuat()
+        {
+            Globals.httpClient.DefaultRequestHeaders.Remove("Authorization");
+        }
     }
 }

@@ -31,6 +31,24 @@ namespace LibManagementApi.Controllers
             return await _context.Users.Select(u => new { u.UserID, u.Username, u.Name, u.Role, u.Email }).ToListAsync();
         }
 
+        [HttpGet("Search")]
+        public async Task<ActionResult<IEnumerable<Users>>> SearchUsers([FromQuery] string keyword)
+        {
+
+            if (Request.QueryString.HasValue)
+            {
+                keyword = keyword?.ToLower();
+                var users = _context.Users.Where(
+                    u => u.Username.ToLower().Contains(keyword) ||
+                         u.Name.ToLower().Contains(keyword) ||
+                         u.Email.ToLower().Contains(keyword)
+                    );
+                return await users.ToListAsync();
+            }
+            else
+                return await _context.Users.ToListAsync();
+        }
+
         [Authorize]
         // GET: api/Users/5
         [HttpGet("{id}")]

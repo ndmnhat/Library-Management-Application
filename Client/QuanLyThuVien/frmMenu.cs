@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyThuVien.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -80,5 +81,14 @@ namespace QuanLyThuVien
 		{
 			OpenForm(new frmLapPhieuMuon());
 		}
-	}
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+			if (MessageBox.Show("Bạn muốn đăng xuất?", "Đăng xuất", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+				NguoiDungBUS.DangXuat();
+				this.Close();
+			}
+        }
+    }
 }

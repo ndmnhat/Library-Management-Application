@@ -25,9 +25,29 @@ namespace LibManagementApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Books>>> GetBooks()
         {
-            return await _context.Books.ToListAsync();
+                return await _context.Books.ToListAsync();
         }
 
+        [HttpGet("Search")]
+        public async Task<ActionResult<IEnumerable<Books>>> SearchBooks([FromQuery] string keyword)
+        {
+
+            if (Request.QueryString.HasValue)
+            {
+                keyword = keyword?.ToLower();
+                var books = _context.Books.Where(
+                    b => b.Bookname.ToLower().Contains(keyword) ||
+                         b.Author.ToLower().Contains(keyword) ||
+                         b.Category.ToLower().Contains(keyword) ||
+                         b.CreateAt.ToShortDateString().ToLower().Contains(keyword) ||
+                         b.Quantity.ToString().Contains(keyword) ||
+                         b.YearofPub.Contains(keyword)
+                    );
+                return await books.ToListAsync();
+            }
+            else
+                return await _context.Books.ToListAsync();
+        }
         // GET: api/Books/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Books>> GetBooks(Guid id)
