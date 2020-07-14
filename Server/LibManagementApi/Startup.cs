@@ -18,7 +18,6 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
-
 namespace LibManagementApi
 {
     public class Startup
@@ -82,6 +81,7 @@ namespace LibManagementApi
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

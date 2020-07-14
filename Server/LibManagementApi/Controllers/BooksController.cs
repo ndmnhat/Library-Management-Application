@@ -25,13 +25,12 @@ namespace LibManagementApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Books>>> GetBooks()
         {
-                return await _context.Books.ToListAsync();
+            return await _context.Books.ToListAsync();
         }
 
         [HttpGet("Search")]
         public async Task<ActionResult<IEnumerable<Books>>> SearchBooks([FromQuery] string keyword)
         {
-
             if (Request.QueryString.HasValue)
             {
                 keyword = keyword?.ToLower();

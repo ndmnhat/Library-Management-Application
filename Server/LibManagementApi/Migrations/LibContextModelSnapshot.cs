@@ -30,6 +30,9 @@ namespace LibManagementApi.Migrations
                     b.Property<DateTime>("BorrowDate")
                         .HasColumnType("datetime");
 
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime");
+
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime");
 

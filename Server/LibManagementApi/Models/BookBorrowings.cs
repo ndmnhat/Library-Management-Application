@@ -13,7 +13,11 @@ namespace LibManagementApi.Models
         public Users User { get; set; }
         [Required]
         public Books Book { get; set; }
+        [Required]
+        public DateTime OrderDate { get; set; }
+        [Required]
         public DateTime BorrowDate { get; set; }
+        [Required]
         public DateTime ReturnDate { get; set; }
         public BookReturnings BookReturning { get; set; }
     }

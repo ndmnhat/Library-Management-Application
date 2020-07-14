@@ -9,10 +9,11 @@ namespace LibManagementApi.Models
     {
         [Key]
         public Guid BookReturningID { get; private set; }
-        public Guid BookBorrowingID { get; private set; }
+        public Guid BookBorrowingID { get; set; }
         [Required]
         public BookBorrowings BookBorrowing { get; set; }
         [Required]
         public DateTime ActualReturnDate { get; set; }
+
     }
 }
